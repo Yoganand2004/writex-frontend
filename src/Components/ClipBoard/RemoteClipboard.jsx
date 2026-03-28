@@ -61,10 +61,10 @@ export default function RemoteClipboard() {
 
   const handleJoin = () => {
     const token =  Cookies.get('token')
-    if(!token){
-      navigate("/login")
-      return;
-    }
+    // if(!token){
+    //   navigate("/login")
+    //   return;
+    // }
     
     const val = inputPort.trim();
     if (!/^\d{5}$/.test(val)) {
