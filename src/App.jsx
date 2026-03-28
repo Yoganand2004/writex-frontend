@@ -4,9 +4,9 @@ import './index.css'
 
 import Home from "./Components/Home/home";
 import Layout from "./layout/Layout";
-import About from "./Components/AboutUs/about";
+import About from "./Components/AboutUs/About";
 import User from "./Components/User/User";
-import Github from "./Components/Github/github";
+import Github from "./Components/Github/Github";
 import Login from "./Components/pages/Login";
 import Signup from './Components/pages/Signup';
 import { ToastContainer } from "react-toastify";
