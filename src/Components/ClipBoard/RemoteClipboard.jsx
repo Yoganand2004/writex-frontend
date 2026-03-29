@@ -220,130 +220,134 @@ export default function RemoteClipboard() {
               border: "1px solid rgba(110,231,183,0.12)",
             }}
           >
-            {/* YOUR PORT section */}
-            <div className="mb-4">
-              <p className="text-xs uppercase tracking-widest text-white/30 mb-2">Your Port</p>
-              <div className="flex items-center gap-2 flex-wrap">
-                {/* Digit boxes */}
-                <div className="flex gap-1 sm:gap-1.5">
-                  {port.split("").map((d, i) => (
-                    <div
-                      key={i}
-                      className="w-8 h-10 sm:w-9 sm:h-11 flex items-center justify-center rounded-lg text-lg sm:text-xl font-bold"
-                      style={{
-                        background: "rgba(110,231,183,0.1)",
-                        border: "1px solid rgba(110,231,183,0.25)",
-                        color: "#6ee7b7",
-                        fontFamily: "inherit",
-                      }}
-                    >
-                      {d}
-                    </div>
-                  ))}
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
+
+              {/* YOUR PORT section */}
+              <div className="flex-1 w-full sm:w-auto">
+                <p className="text-xs uppercase tracking-widest text-white/30 mb-2 text-left">Your Port</p>
+                <div className="flex items-center gap-2 flex-wrap">
+                  {/* Digit boxes */}
+                  <div className="flex gap-1 sm:gap-1.5">
+                    {port.split("").map((d, i) => (
+                      <div
+                        key={i}
+                        className="w-8 h-10 sm:w-9 sm:h-11 flex items-center justify-center rounded-lg text-lg sm:text-xl font-bold"
+                        style={{
+                          background: "rgba(110,231,183,0.1)",
+                          border: "1px solid rgba(110,231,183,0.25)",
+                          color: "#6ee7b7",
+                          fontFamily: "inherit",
+                        }}
+                      >
+                        {d}
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Copy port */}
+                  <button
+                    onClick={handleCopyPort}
+                    title="Copy port number"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all duration-150 hover:scale-105 active:scale-95"
+                    style={{
+                      background: portCopied ? "rgba(110,231,183,0.2)" : "rgba(255,255,255,0.06)",
+                      color: portCopied ? "#6ee7b7" : "rgba(255,255,255,0.4)",
+                      border: portCopied ? "1px solid rgba(110,231,183,0.3)" : "1px solid rgba(255,255,255,0.08)",
+                      fontFamily: "inherit",
+                      minHeight: "36px",
+                    }}
+                  >
+                    {portCopied ? (
+                      <>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                          <path d="M2 6l2.5 2.5 5.5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        Copied
+                      </>
+                    ) : (
+                      <>
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                          <rect x="3" y="3" width="7" height="8" rx="1" stroke="currentColor" strokeWidth="1.2"/>
+                          <path d="M2 8.5H1.5C1.22 8.5 1 8.28 1 8V2C1 1.72 1.22 1.5 1.5 1.5H7C7.28 1.5 7.5 1.72 7.5 2V3" stroke="currentColor" strokeWidth="1.2"/>
+                        </svg>
+                        Copy
+                      </>
+                    )}
+                  </button>
+
+                  {/* New port */}
+                  <button
+                    onClick={handleNewPort}
+                    title="Generate new port"
+                    className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all duration-150 hover:scale-105 active:scale-95"
+                    style={{
+                      background: "rgba(255,255,255,0.04)",
+                      color: "rgba(255,255,255,0.3)",
+                      border: "1px solid rgba(255,255,255,0.06)",
+                      fontFamily: "inherit",
+                      minHeight: "36px",
+                    }}
+                  >
+                    <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                      <path d="M10 6A4 4 0 1 1 6 2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
+                      <path d="M6 0l2 2-2 2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                    New
+                  </button>
                 </div>
-
-                {/* Copy port */}
-                <button
-                  onClick={handleCopyPort}
-                  title="Copy port number"
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all duration-150 active:scale-95"
-                  style={{
-                    background: portCopied ? "rgba(110,231,183,0.2)" : "rgba(255,255,255,0.06)",
-                    color: portCopied ? "#6ee7b7" : "rgba(255,255,255,0.4)",
-                    border: portCopied ? "1px solid rgba(110,231,183,0.3)" : "1px solid rgba(255,255,255,0.08)",
-                    fontFamily: "inherit",
-                    minHeight: "36px",
-                  }}
-                >
-                  {portCopied ? (
-                    <>
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                        <path d="M2 6l2.5 2.5 5.5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                      </svg>
-                      Copied
-                    </>
-                  ) : (
-                    <>
-                      <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                        <rect x="3" y="3" width="7" height="8" rx="1" stroke="currentColor" strokeWidth="1.2"/>
-                        <path d="M2 8.5H1.5C1.22 8.5 1 8.28 1 8V2C1 1.72 1.22 1.5 1.5 1.5H7C7.28 1.5 7.5 1.72 7.5 2V3" stroke="currentColor" strokeWidth="1.2"/>
-                      </svg>
-                      Copy
-                    </>
-                  )}
-                </button>
-
-                {/* New port */}
-                <button
-                  onClick={handleNewPort}
-                  title="Generate new port"
-                  className="flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs transition-all duration-150 active:scale-95"
-                  style={{
-                    background: "rgba(255,255,255,0.04)",
-                    color: "rgba(255,255,255,0.3)",
-                    border: "1px solid rgba(255,255,255,0.06)",
-                    fontFamily: "inherit",
-                    minHeight: "36px",
-                  }}
-                >
-                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    <path d="M10 6A4 4 0 1 1 6 2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round"/>
-                    <path d="M6 0l2 2-2 2" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  New
-                </button>
               </div>
-            </div>
 
-            {/* Divider */}
-            <div className="w-full h-px bg-white/10 mb-4" />
+              {/* Vertical divider on desktop, horizontal on mobile */}
+              <div className="hidden sm:block w-px h-12 bg-white/10 flex-shrink-0" />
+              <div className="sm:hidden w-full h-px bg-white/10" />
 
-            {/* JOIN section */}
-            <div>
-              <p className="text-xs uppercase tracking-widest text-white/30 mb-2">Join a Port</p>
-              <div className="flex items-center gap-2">
-                <input
-                  type="text"
-                  inputMode="numeric"
-                  pattern="[0-9]*"
-                  maxLength={5}
-                  value={inputPort}
-                  onChange={(e) => {
-                    setJoinError("");
-                    const v = e.target.value.replace(/\D/g, "").slice(0, 5);
-                    setInputPort(v);
-                  }}
-                  onKeyDown={(e) => e.key === "Enter" && handleJoin()}
-                  placeholder="_ _ _ _ _"
-                  className="text-center font-bold rounded-lg outline-none transition-all"
-                  style={{
-                    width: "110px",
-                    background: "rgba(255,255,255,0.05)",
-                    border: joinError ? "1px solid rgba(239,68,68,0.5)" : "1px solid rgba(255,255,255,0.1)",
-                    color: "white",
-                    fontFamily: "inherit",
-                    padding: "10px 10px",
-                    letterSpacing: "0.2em",
-                    caretColor: "#6ee7b7",
-                    minHeight: "44px",
-                  }}
-                />
-                <button
-                  onClick={handleJoin}
-                  className="flex-1 sm:flex-none px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-150 active:scale-95"
-                  style={{
-                    background: "linear-gradient(135deg, #6ee7b7, #3b82f6)",
-                    color: "#0a0a0f",
-                    fontFamily: "inherit",
-                    minHeight: "44px",
-                  }}
-                >
-                  Join
-                </button>
+              {/* JOIN section */}
+              <div className="flex-1 w-full sm:w-auto">
+                <p className="text-xs uppercase tracking-widest text-white/30 mb-2 text-left">Join a Port</p>
+                <div className="flex items-center gap-2">
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    maxLength={5}
+                    value={inputPort}
+                    onChange={(e) => {
+                      setJoinError("");
+                      const v = e.target.value.replace(/\D/g, "").slice(0, 5);
+                      setInputPort(v);
+                    }}
+                    onKeyDown={(e) => e.key === "Enter" && handleJoin()}
+                    placeholder="_ _ _ _ _"
+                    className="text-center font-bold rounded-lg outline-none transition-all"
+                    style={{
+                      width: "110px",
+                      background: "rgba(255,255,255,0.05)",
+                      border: joinError ? "1px solid rgba(239,68,68,0.5)" : "1px solid rgba(255,255,255,0.1)",
+                      color: "white",
+                      fontFamily: "inherit",
+                      padding: "10px 10px",
+                      letterSpacing: "0.2em",
+                      caretColor: "#6ee7b7",
+                      minHeight: "44px",
+                    }}
+                  />
+                  <button
+                    onClick={handleJoin}
+                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-lg text-sm font-semibold transition-all duration-150 hover:scale-105 active:scale-95"
+                    style={{
+                      background: "linear-gradient(135deg, #6ee7b7, #3b82f6)",
+                      color: "#0a0a0f",
+                      fontFamily: "inherit",
+                      minHeight: "44px",
+                    }}
+                  >
+                    Join
+                  </button>
+                </div>
+                {joinError && (
+                  <p className="text-xs mt-1.5" style={{ color: "rgba(239,68,68,0.8)" }}>{joinError}</p>
+                )}
               </div>
-              {joinError && (
-                <p className="text-xs mt-1.5" style={{ color: "rgba(239,68,68,0.8)" }}>{joinError}</p>
-              )}
             </div>
           </div>
 
