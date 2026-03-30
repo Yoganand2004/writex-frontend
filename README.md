@@ -27,3 +27,70 @@
 ---
 
 ## 📂 Project Structure
+
+writex-frontend/
+│── public/
+│── src/
+│ ├── components/
+│ ├── pages/
+│ ├── Socketfrontend.js
+│ ├── App.js
+│ └── index.js
+│── package.json
+│── README.md
+
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally:
+
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/Yoganand2004/writex-frontend.git
+cd writex-frontend
+
+2️⃣ Install dependencies
+npm install
+3️⃣ Start the development server
+npm start
+🔌 Backend Requirement
+
+This frontend connects to a backend server using Socket.IO.
+
+Make sure your backend is running at:
+
+http://localhost:8003
+🚀 Deployment
+
+The project is deployed on Vercel.
+
+To deploy your own version:
+
+npm run build
+
+Then deploy using:
+
+vercel deploy
+📸 Preview
+
+👉 Try it live:
+https://writex-frontend-git-main-yoganand4k-2043s-projects.vercel.app/
+
+🤝 Contributing
+
+Contributions are welcome!
+
+Fork the repo
+Create a new branch
+Make your changes
+Submit a pull request
+📄 License
+
+This project is open-source and available under the MIT License.
+
+👨‍💻 Author
+
+Yoga Nand Roy
+📌 B.Tech CSE Student | Developer
