@@ -28,19 +28,9 @@
 
 ## 📂 Project Structure
 
-writex-frontend/
-│── public/
-│── src/
-│ ├── components/
-│ ├── pages/
-│ ├── Socketfrontend.js
-│ ├── App.js
-│ └── index.js
-│── package.json
-│── README.md
+![alt text](image.png)
 
 
----
 
 ## ⚙️ Installation & Setup
 
